@@ -4,6 +4,7 @@
   "package": "me.uquark.miscellaneous.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "FarmlandBlockMixin"
   ],
   "client": [
   ],
