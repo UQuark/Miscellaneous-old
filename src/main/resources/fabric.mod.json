@@ -1,29 +1,25 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "miscellaneous",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Miscellaneous",
+  "description": "Tiny miscellaneous changes w/o topic",
   "authors": [
-    "Me!"
+    "UQuark"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/UQuark0/Miscellaneous"
   },
-
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "me.uquark.miscellaneous.Miscellaneous"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "miscellaneous.mixins.json"
   ],
 
   "depends": {
