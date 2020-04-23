@@ -12,6 +12,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Iterator;
 
@@ -36,15 +39,11 @@ public abstract class FarmlandBlockMixin extends Block {
         return true;
     }
 
-    @Overwrite
-    public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
-        if (!world.isClient && world.random.nextFloat() < distance - 0.5F && entity instanceof LivingEntity && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) && entity.getWidth() * entity.getWidth() * entity.getHeight() > 0.512F) {
-            // MY CODE
-            if (!isWaterNearby(world, pos))
-                // END OF MY CODE
-                FarmlandBlock.setToDirt(world.getBlockState(pos), world, pos);
+    @Inject(method = "onLandedUpon", at = @At("HEAD"), cancellable = true)
+    public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance, CallbackInfo info) {
+        if (isWaterNearby(world, pos)) {
+            super.onLandedUpon(world, pos, entity, distance);
+            info.cancel();
         }
-
-        super.onLandedUpon(world, pos, entity, distance);
     }
 }
