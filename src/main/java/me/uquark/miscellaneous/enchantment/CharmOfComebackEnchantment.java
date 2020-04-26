@@ -2,13 +2,12 @@ package me.uquark.miscellaneous.enchantment;
 
 import me.uquark.miscellaneous.Miscellaneous;
 import me.uquark.quarkcore.enchantment.AbstractEnchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.enchantment.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-public class CharmOfComeback extends AbstractEnchantment {
-    protected CharmOfComeback() {
+public class CharmOfComebackEnchantment extends AbstractEnchantment {
+    protected CharmOfComebackEnchantment() {
         super(Miscellaneous.modid, "charm_of_comeback", Weight.RARE, EnchantmentTarget.ALL, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
@@ -28,6 +27,10 @@ public class CharmOfComeback extends AbstractEnchantment {
     }
 
     public static boolean isEnchanted(ItemStack stack) {
-        return EnchantmentHelper.getLevel(Enchantments.CHARM_OF_COMEBACK, stack) > 0;
+        return EnchantmentHelper.getLevel(Enchantments.CHARM_OF_COMEBACK_ENCHANTMENT, stack) > 0;
+    }
+
+    public boolean differs(Enchantment other) {
+        return other instanceof BindingCurseEnchantment ? false : super.differs(other);
     }
 }

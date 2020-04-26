@@ -1,4 +1,13 @@
 {
   "item.miscellaneous.wrench": "Wrench",
-  "enchantment.miscellaneous.charm_of_comeback": "Charm of Comeback"
+  "enchantment.miscellaneous.charm_of_comeback": "Charm of Comeback",
+  "effect.miscellaneous.bound_inventory": "Bound Inventory",
+  "item.minecraft.potion.effect.bound_inventory": "Potion of Bound Inventory",
+  "item.minecraft.potion.effect.long_bound_inventory": "Potion of Bound Inventory",
+  "item.minecraft.splash_potion.effect.bound_inventory": "Splash Potion of Bound Inventory",
+  "item.minecraft.splash_potion.effect.long_bound_inventory": "Splash Potion of Bound Inventory",
+  "item.minecraft.tipped_arrow.effect.bound_inventory": "Arrow of Bound Inventory",
+  "item.minecraft.tipped_arrow.effect.long_bound_inventory": "Arrow of Bound Inventory",
+  "item.minecraft.lingering_potion.effect.bound_inventory": "Lingering Potion of Bound Inventory",
+  "item.minecraft.lingering_potion.effect.long_bound_inventory": "Lingering Potion of Bound Inventory"
 }
