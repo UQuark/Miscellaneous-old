@@ -12,9 +12,14 @@ public class Miscellaneous implements ModInitializer {
     @Override
     public void onInitialize() {
         Items.WRENCH_ITEM.register();
+
         Enchantments.CHARM_OF_COMEBACK_ENCHANTMENT.register();
+
         Effects.BOUND_INVENTORY_EFFECT.register();
+        Effects.ROTTING_ALIVE_EFFECT.register();
+
         Potions.BOUND_INVENTORY_POTION.register();
         Potions.LONG_BOUND_INVENTORY_POTION.register();
+        Potions.ROTTING_ALIVE_POTION.register();
     }
 }

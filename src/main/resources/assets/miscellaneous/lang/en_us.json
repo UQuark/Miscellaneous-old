@@ -9,5 +9,10 @@
   "item.minecraft.tipped_arrow.effect.bound_inventory": "Arrow of Bound Inventory",
   "item.minecraft.tipped_arrow.effect.long_bound_inventory": "Arrow of Bound Inventory",
   "item.minecraft.lingering_potion.effect.bound_inventory": "Lingering Potion of Bound Inventory",
-  "item.minecraft.lingering_potion.effect.long_bound_inventory": "Lingering Potion of Bound Inventory"
+  "item.minecraft.lingering_potion.effect.long_bound_inventory": "Lingering Potion of Bound Inventory",
+  "effect.miscellaneous.rotting_alive": "Rotting Alive",
+  "item.minecraft.potion.effect.rotting_alive": "Potion of Rotting Alive",
+  "item.minecraft.splash_potion.effect.rotting_alive": "Splash Potion of Rotting Alive",
+  "item.minecraft.tipped_arrow.effect.rotting_alive": "Arrow of Rotting Alive",
+  "item.minecraft.lingering_potion.effect.rotting_alive": "Lingering Potion of Rotting Alive"
 }
