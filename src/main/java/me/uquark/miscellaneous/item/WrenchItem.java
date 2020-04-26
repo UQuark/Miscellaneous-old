@@ -1,13 +1,17 @@
-package me.uquark.quarkcore.item;
+package me.uquark.miscellaneous.item;
 
-import me.uquark.quarkcore.base.AbstractMod;
+import me.uquark.miscellaneous.Miscellaneous;
+import me.uquark.quarkcore.item.AbstractToolItem;
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PistonBlock;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.state.property.DirectionProperty;
@@ -24,11 +28,11 @@ import net.minecraft.world.World;
 
 public class WrenchItem extends AbstractToolItem {
     public static final String name = "wrench";
-    public static final Identifier WRENCH_SOUND_ID = new Identifier(AbstractMod.INSTANCE.modid, "wrench_sound");
+    public static final Identifier WRENCH_SOUND_ID = new Identifier(Miscellaneous.modid, "wrench_sound");
     public static final SoundEvent WRENCH_SOUND_EVENT = new SoundEvent(WRENCH_SOUND_ID);
 
     public WrenchItem(Settings settings) {
-        super(AbstractMod.INSTANCE, ToolMaterials.IRON, name, settings);
+        super(Miscellaneous.modid, name, ToolMaterials.IRON, settings);
     }
 
     @Override
