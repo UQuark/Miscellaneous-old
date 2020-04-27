@@ -6,6 +6,6 @@ import net.minecraft.item.ItemGroup;
 
 public class NecromassItem extends AbstractItem {
     public NecromassItem() {
-        super(Miscellaneous.modid, "necromass", new Settings().maxCount(64).group(ItemGroup.MISC));
+        super(Miscellaneous.modid, "necromass", new Settings().group(ItemGroup.MISC));
     }
 }

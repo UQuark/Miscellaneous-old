@@ -1,5 +1,6 @@
 package me.uquark.miscellaneous;
 
+import me.uquark.miscellaneous.block.Blocks;
 import me.uquark.miscellaneous.effect.Effects;
 import me.uquark.miscellaneous.enchantment.Enchantments;
 import me.uquark.miscellaneous.item.Items;
@@ -29,6 +30,8 @@ public class Miscellaneous implements ModInitializer {
         Potions.BOUND_INVENTORY_POTION.register();
         Potions.LONG_BOUND_INVENTORY_POTION.register();
         Potions.ROTTING_ALIVE_POTION.register();
+
+        Blocks.INVERTED_REDSTONE_LAMP_BLOCK.register();
 
         if (!BrewingRecipeHelper.registerPotionRecipe(net.minecraft.potion.Potions.AWKWARD, net.minecraft.item.Items.ENDER_PEARL, Potions.BOUND_INVENTORY_POTION))
             LOGGER.warn(String.format("Failed to register recipe of potion %s", Potions.BOUND_INVENTORY_POTION.id.getPath()));
