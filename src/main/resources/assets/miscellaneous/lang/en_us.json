@@ -16,6 +16,6 @@
   "item.minecraft.tipped_arrow.effect.rotting_alive": "Arrow of Rotting Alive",
   "item.minecraft.lingering_potion.effect.rotting_alive": "Lingering Potion of Rotting Alive",
   "item.miscellaneous.necromass": "Necromass",
-  "item.miscellaneous.inverted_redstone_lamp": "Inverted Redstone Lamp",
-  "block.miscellaneous.inverted_redstone_lamp": "Inverted Redstone Lamp"
+  "block.miscellaneous.inverted_redstone_lamp": "Inverted Redstone Lamp",
+  "block.miscellaneous.waypoint_block": "Waypoint"
 }
