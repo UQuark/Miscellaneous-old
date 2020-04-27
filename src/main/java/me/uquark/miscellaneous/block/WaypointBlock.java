@@ -26,6 +26,9 @@ public class WaypointBlock extends AbstractBlock {
     @Override
     public void register() {
         super.register();
+    }
+
+    public void registerClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.getTranslucent());
     }
 

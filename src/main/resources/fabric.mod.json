@@ -16,6 +16,9 @@
   "entrypoints": {
     "main": [
       "me.uquark.miscellaneous.Miscellaneous"
+    ],
+    "client": [
+      "me.uquark.miscellaneous.MiscellaneousClient"
     ]
   },
   "mixins": [
