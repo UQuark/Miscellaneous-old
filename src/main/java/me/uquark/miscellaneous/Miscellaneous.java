@@ -17,6 +17,9 @@ public class Miscellaneous implements ModInitializer {
     public void onInitialize() {
         Items.WRENCH_ITEM.register();
         Items.NECROMASS_ITEM.register();
+        Items.STACKABLE_POTION_ITEM.register();
+        Items.STACKABLE_SPLASH_POTION_ITEM.register();
+        Items.STACKABLE_LINGERING_POTION_ITEM.register();
 
         Enchantments.CHARM_OF_COMEBACK_ENCHANTMENT.register();
 

@@ -5,15 +5,17 @@ import me.uquark.quarkcore.enchantment.AbstractEnchantment;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.PotionItem;
 
 public class CharmOfComebackEnchantment extends AbstractEnchantment {
     protected CharmOfComebackEnchantment() {
-        super(Miscellaneous.modid, "charm_of_comeback", Weight.RARE, EnchantmentTarget.ALL, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Miscellaneous.modid, "charm_of_comeback", Weight.COMMON, EnchantmentTarget.ALL, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
     public int getMinimumPower(int level) {
-        return 5;
+        return 30;
     }
 
     @Override
