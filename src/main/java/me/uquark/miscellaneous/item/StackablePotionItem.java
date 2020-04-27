@@ -19,7 +19,7 @@ public class StackablePotionItem extends PotionItem {
 
     public void register() {
         try {
-            Field potion = ReflectionHelper.resolveField(Items.class, "POTION", "field_11143");
+            Field potion = ReflectionHelper.resolveField(Items.class, "POTION", "field_8574");
             ReflectionHelper.setFinal(null, potion, this);
             Registry.ITEM.set(687, id, this);
         } catch (Exception e) {
