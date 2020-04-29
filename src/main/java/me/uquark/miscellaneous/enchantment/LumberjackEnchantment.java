@@ -1,7 +1,7 @@
 package me.uquark.miscellaneous.enchantment;
 
 import me.uquark.miscellaneous.Miscellaneous;
-import me.uquark.miscellaneous.util.Tree;
+import me.uquark.miscellaneous.util.TreeDefinition;
 import me.uquark.quarkcore.enchantment.AbstractEnchantment;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -35,12 +35,15 @@ public class LumberjackEnchantment extends AbstractEnchantment {
     public void capitate(PlayerEntity player, World world, BlockPos pos) {
         if (world.isClient)
             return;
-        Tree tree = new Tree(world, pos);
-        if (!tree.isTree)
+        TreeDefinition treeDefinition = new TreeDefinition(world, pos);
+        if (!treeDefinition.isTree)
             return;
-        for (BlockPos treeBlock : tree.blocks)
+        ItemStack toolStack = player.getMainHandStack();
+        for (BlockPos treeBlock : treeDefinition.blocks) {
             world.breakBlock(treeBlock, false, player);
+            toolStack.getItem().postMine(toolStack, world, world.getBlockState(pos), pos, player);
+        }
         if (!player.isCreative())
-            Block.dropStack(world, pos, new ItemStack(tree.type.getLog(), tree.blocks.size()));
+            Block.dropStack(world, pos, new ItemStack(treeDefinition.type.getLog(), treeDefinition.blocks.size()));
     }
 }

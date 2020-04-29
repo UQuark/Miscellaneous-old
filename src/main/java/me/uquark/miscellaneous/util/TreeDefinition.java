@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Tree {
+public class TreeDefinition {
     public enum TreeType {
         Oak,
         Birch,
@@ -79,31 +79,30 @@ public class Tree {
     private final Set<BlockPos> checked = new HashSet<>();
     private boolean hasTop = false;
 
-    public Tree(World world, BlockPos pos) {
+    public TreeDefinition(World world, BlockPos pos) {
         type = TreeType.getTreeType(world.getBlockState(pos).getBlock());
-        isTree = dfsLogs(world, pos) && hasTop;
+        defineTree(world, pos);
+        isTree = hasTop;
     }
 
-    private boolean dfsLogs(World world, BlockPos pos) {
+    private void defineTree(World world, BlockPos pos) {
         if (checked.contains(pos))
-            return true;
+            return;
         checked.add(pos);
 
         BlockState state = world.getBlockState(pos);
+
+        if (state.getBlock() instanceof LeavesBlock && TreeType.getTreeType(state.getBlock()) == type) {
+            hasTop |= !state.get(LeavesBlock.PERSISTENT);
+            return;
+        }
+
         if (state.getBlock() instanceof LogBlock && TreeType.getTreeType(state.getBlock()) == type) {
             blocks.add(pos);
             for (int x = -1; x <= 1; x++)
                 for (int y = 0; y <= 1; y++)
                     for (int z = -1; z <= 1; z++)
-                        if (!dfsLogs(world, pos.add(x, y, z)))
-                            return false;
+                        defineTree(world, pos.add(x, y, z));
         }
-
-        if (state.getBlock() instanceof LeavesBlock && TreeType.getTreeType(state.getBlock()) == type) {
-            hasTop = true;
-            return !state.get(LeavesBlock.PERSISTENT);
-        }
-
-        return true;
     }
 }
