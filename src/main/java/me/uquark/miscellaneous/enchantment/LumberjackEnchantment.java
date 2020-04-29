@@ -40,10 +40,12 @@ public class LumberjackEnchantment extends AbstractEnchantment {
             return;
         ItemStack toolStack = player.getMainHandStack();
         for (BlockPos treeBlock : treeDefinition.blocks) {
+            if (treeBlock.equals(pos))
+                continue;
             world.breakBlock(treeBlock, false, player);
             toolStack.getItem().postMine(toolStack, world, world.getBlockState(pos), pos, player);
         }
         if (!player.isCreative())
-            Block.dropStack(world, pos, new ItemStack(treeDefinition.type.getLog(), treeDefinition.blocks.size()));
+            Block.dropStack(world, pos, new ItemStack(treeDefinition.type.getLog(), treeDefinition.blocks.size() - 1));
     }
 }
