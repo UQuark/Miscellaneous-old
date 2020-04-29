@@ -28,6 +28,7 @@ public class Miscellaneous implements ModInitializer {
 
         Effects.BOUND_INVENTORY_EFFECT.register();
         Effects.ROTTING_ALIVE_EFFECT.register();
+        Effects.HANDY_EFFECT.register();
 
         Potions.BOUND_INVENTORY_POTION.register();
         Potions.LONG_BOUND_INVENTORY_POTION.register();
