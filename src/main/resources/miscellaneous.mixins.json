@@ -9,7 +9,10 @@
     "PlayerInventoryMixin",
     "ServerPlayerEntityMixin",
     "PlayerEntityMixin",
-    "AbstractTraderEntityMixin"
+    "AbstractTraderEntityMixin",
+    "ArmorStandEntityMixin",
+    "SheepEntityMixin",
+    "ServerPlayerInteractionManagerMixin"
   ],
   "client": [
   ],

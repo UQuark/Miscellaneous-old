@@ -22,6 +22,8 @@ public class StackableLingeringPotionItem extends SplashPotionItem {
         try {
             if (!BrewingRecipeHelper.registerPotionType(this))
                 return;
+            if (!BrewingRecipeHelper.registerItemRecipe(me.uquark.miscellaneous.item.Items.STACKABLE_SPLASH_POTION_ITEM, Items.DRAGON_BREATH, me.uquark.miscellaneous.item.Items.STACKABLE_LINGERING_POTION_ITEM))
+                return;
             Field potion = ReflectionHelper.resolveField(Items.class, "LINGERING_POTION", "field_8150");
             ReflectionHelper.setFinal(null, potion, this);
             Registry.ITEM.set(828, id, this);

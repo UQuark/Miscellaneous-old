@@ -17,5 +17,7 @@
   "item.minecraft.lingering_potion.effect.rotting_alive": "Lingering Potion of Rotting Alive",
   "item.miscellaneous.necromass": "Necromass",
   "block.miscellaneous.inverted_redstone_lamp": "Inverted Redstone Lamp",
-  "block.miscellaneous.waypoint_block": "Waypoint"
+  "block.miscellaneous.waypoint_block": "Waypoint",
+  "item.miscellaneous.armor_stand_with_arms": "Armor Stand with Arms",
+  "enchantment.miscellaneous.lumberjack": "Lumberjack"
 }

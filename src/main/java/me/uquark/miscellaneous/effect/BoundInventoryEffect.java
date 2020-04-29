@@ -4,7 +4,6 @@ import me.uquark.miscellaneous.Miscellaneous;
 import me.uquark.quarkcore.effect.AbstractStatusEffect;
 import me.uquark.quarkcore.reflect.ReflectionHelper;
 import net.minecraft.block.entity.BeaconBlockEntity;
-import net.minecraft.client.gui.screen.ingame.BeaconScreen;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.entity.effect.StatusEffects;

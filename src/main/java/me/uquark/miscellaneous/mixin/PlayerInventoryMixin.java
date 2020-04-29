@@ -1,8 +1,7 @@
 package me.uquark.miscellaneous.mixin;
 
 import me.uquark.miscellaneous.effect.Effects;
-import me.uquark.miscellaneous.enchantment.CharmOfComebackEnchantment;
-import net.minecraft.block.entity.BeaconBlockEntity;
+import me.uquark.miscellaneous.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -12,7 +11,6 @@ import net.minecraft.util.Nameable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.tools.obfuscation.ObfuscationData;
 
 import java.util.Iterator;
 import java.util.List;
@@ -36,7 +34,7 @@ public abstract class PlayerInventoryMixin implements Inventory, Nameable {
 
             for(int i = 0; i < list.size(); ++i) {
                 ItemStack itemStack = (ItemStack)list.get(i);
-                if (!itemStack.isEmpty() && !CharmOfComebackEnchantment.isEnchanted(itemStack)) {
+                if (!itemStack.isEmpty() && !Enchantments.CHARM_OF_COMEBACK_ENCHANTMENT.isEnchanted(itemStack)) {
                     this.player.dropItem(itemStack, true, false);
                     list.set(i, ItemStack.EMPTY);
                 }

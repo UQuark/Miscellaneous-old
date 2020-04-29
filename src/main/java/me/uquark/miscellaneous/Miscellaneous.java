@@ -21,8 +21,10 @@ public class Miscellaneous implements ModInitializer {
         Items.STACKABLE_POTION_ITEM.register();
         Items.STACKABLE_SPLASH_POTION_ITEM.register();
         Items.STACKABLE_LINGERING_POTION_ITEM.register();
+        Items.ARMOR_STAND_WITH_ARMS_ITEM.register();
 
         Enchantments.CHARM_OF_COMEBACK_ENCHANTMENT.register();
+        Enchantments.LUMBERJACK_ENCHANTMENT.register();
 
         Effects.BOUND_INVENTORY_EFFECT.register();
         Effects.ROTTING_ALIVE_EFFECT.register();

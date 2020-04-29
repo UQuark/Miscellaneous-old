@@ -2,11 +2,11 @@ package me.uquark.miscellaneous.enchantment;
 
 import me.uquark.miscellaneous.Miscellaneous;
 import me.uquark.quarkcore.enchantment.AbstractEnchantment;
-import net.minecraft.enchantment.*;
+import net.minecraft.enchantment.BindingCurseEnchantment;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.PotionItem;
 
 public class CharmOfComebackEnchantment extends AbstractEnchantment {
     protected CharmOfComebackEnchantment() {
@@ -26,10 +26,6 @@ public class CharmOfComebackEnchantment extends AbstractEnchantment {
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return true;
-    }
-
-    public static boolean isEnchanted(ItemStack stack) {
-        return EnchantmentHelper.getLevel(Enchantments.CHARM_OF_COMEBACK_ENCHANTMENT, stack) > 0;
     }
 
     public boolean differs(Enchantment other) {
