@@ -34,7 +34,6 @@ public class Miscellaneous implements ModInitializer {
         Potions.ROTTING_ALIVE_POTION.register();
 
         Blocks.INVERTED_REDSTONE_LAMP_BLOCK.register();
-        Blocks.WAYPOINT_BLOCK.register();
 
         if (!BrewingRecipeHelper.registerPotionRecipe(net.minecraft.potion.Potions.AWKWARD, net.minecraft.item.Items.ENDER_PEARL, Potions.BOUND_INVENTORY_POTION))
             LOGGER.warn(String.format("Failed to register recipe of potion %s", Potions.BOUND_INVENTORY_POTION.id.getPath()));

@@ -6,7 +6,5 @@ import net.fabricmc.api.ClientModInitializer;
 public class MiscellaneousClient implements ClientModInitializer {
 
     @Override
-    public void onInitializeClient() {
-        Blocks.WAYPOINT_BLOCK.registerClient();
-    }
+    public void onInitializeClient() {}
 }
