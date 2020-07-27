@@ -3,72 +3,44 @@ package me.uquark.miscellaneous.util;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class TreeDefinition {
     public enum TreeType {
-        Oak,
-        Birch,
-        Spruce,
-        Jungle,
-        Acacia,
-        DarkOak,
-        Undefined;
+        Oak(Blocks.OAK_LOG, Blocks.OAK_LEAVES),
+        Birch(Blocks.BIRCH_LOG, Blocks.BIRCH_LEAVES),
+        Spruce(Blocks.SPRUCE_LOG, Blocks.SPRUCE_LEAVES),
+        Jungle(Blocks.JUNGLE_LOG, Blocks.JUNGLE_LEAVES),
+        Acacia(Blocks.ACACIA_LOG, Blocks.ACACIA_LEAVES),
+        DarkOak(Blocks.DARK_OAK_LOG, Blocks.DARK_OAK_LEAVES),
+        Crimson(Blocks.CRIMSON_STEM, Blocks.NETHER_WART_BLOCK),
+        Warped(Blocks.WARPED_STEM, Blocks.WARPED_WART_BLOCK),
+        Undefined(null, null);
+
+        private final Block log, leaves;
+
+        TreeType(Block log, Block leaves) {
+            this.log = log;
+            this.leaves = leaves;
+        }
 
         public static TreeType getTreeType(Block block) {
-            if (block.equals(Blocks.OAK_LOG) || block.equals(Blocks.OAK_LEAVES))
-                return Oak;
-            if (block.equals(Blocks.BIRCH_LOG) || block.equals(Blocks.BIRCH_LEAVES))
-                return Birch;
-            if (block.equals(Blocks.SPRUCE_LOG) || block.equals(Blocks.SPRUCE_LEAVES))
-                return Spruce;
-            if (block.equals(Blocks.JUNGLE_LOG) || block.equals(Blocks.JUNGLE_LEAVES))
-                return Jungle;
-            if (block.equals(Blocks.ACACIA_LOG) || block.equals(Blocks.ACACIA_LEAVES))
-                return Acacia;
-            if (block.equals(Blocks.DARK_OAK_LOG) || block.equals(Blocks.DARK_OAK_LEAVES))
-                return DarkOak;
+            for (TreeType t : TreeType.values()) {
+                if (block == t.log || block == t.leaves)
+                    return t;
+            }
             return Undefined;
         }
 
         public Block getLog() {
-            switch (this) {
-                case Oak:
-                    return Blocks.OAK_LOG;
-                case Birch:
-                    return Blocks.BIRCH_LOG;
-                case Spruce:
-                    return Blocks.SPRUCE_LOG;
-                case Jungle:
-                    return Blocks.JUNGLE_LOG;
-                case Acacia:
-                    return Blocks.ACACIA_LOG;
-                case DarkOak:
-                    return Blocks.DARK_OAK_LOG;
-                default:
-                    return null;
-            }
+            return log;
         }
 
         public Block getLeaves() {
-            switch (this) {
-                case Oak:
-                    return Blocks.OAK_LEAVES;
-                case Birch:
-                    return Blocks.BIRCH_LEAVES;
-                case Spruce:
-                    return Blocks.SPRUCE_LEAVES;
-                case Jungle:
-                    return Blocks.JUNGLE_LEAVES;
-                case Acacia:
-                    return Blocks.ACACIA_LEAVES;
-                case DarkOak:
-                    return Blocks.DARK_OAK_LEAVES;
-                default:
-                    return null;
-            }
+            return leaves;
         }
     }
 
@@ -89,15 +61,20 @@ public class TreeDefinition {
         if (checked.contains(pos))
             return;
         checked.add(pos);
-
         BlockState state = world.getBlockState(pos);
+        TreeType treeType = TreeType.getTreeType(state.getBlock());
+        if (treeType == TreeType.Undefined)
+            return;
 
-        if (state.getBlock() instanceof LeavesBlock && TreeType.getTreeType(state.getBlock()) == type) {
-            hasTop |= !state.get(LeavesBlock.PERSISTENT);
+        if (state.getBlock() == treeType.getLeaves() && treeType == type) {
+            if (treeType == TreeType.Warped || treeType == TreeType.Crimson)
+                hasTop = true;
+            else
+                hasTop |= !state.get(LeavesBlock.PERSISTENT);
             return;
         }
 
-        if (state.getBlock() instanceof PillarBlock && TreeType.getTreeType(state.getBlock()) == type) {
+        if (state.getBlock() == treeType.getLog() && treeType == type) {
             blocks.add(pos);
             for (int x = -1; x <= 1; x++)
                 for (int y = 0; y <= 1; y++)
