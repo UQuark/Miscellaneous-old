@@ -21,7 +21,7 @@ public abstract class FarmlandBlockMixin extends Block {
     }
 
     private static boolean isWaterNearby(WorldView worldView, BlockPos pos) {
-        Iterator<BlockPos> var2 = BlockPos.iterate(pos.add(-4, 0, -4), pos.add(4, 1, 4)).iterator();
+        Iterator var2 = BlockPos.iterate(pos.add(-4, 0, -4), pos.add(4, 1, 4)).iterator();
 
         BlockPos blockPos;
         do {
@@ -30,7 +30,7 @@ public abstract class FarmlandBlockMixin extends Block {
             }
 
             blockPos = (BlockPos)var2.next();
-        } while(!worldView.getFluidState(blockPos).matches(FluidTags.WATER));
+        } while(!worldView.getFluidState(blockPos).isIn(FluidTags.WATER));
 
         return true;
     }

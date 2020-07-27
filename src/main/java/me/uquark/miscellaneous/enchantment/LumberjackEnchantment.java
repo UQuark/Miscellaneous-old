@@ -14,16 +14,16 @@ import net.minecraft.world.World;
 
 public class LumberjackEnchantment extends AbstractEnchantment {
     protected LumberjackEnchantment() {
-        super(Miscellaneous.modid, "lumberjack", Weight.COMMON, EnchantmentTarget.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Miscellaneous.modid, "lumberjack", Rarity.COMMON, EnchantmentTarget.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
-    public int getMinimumPower(int level) {
+    public int getMinPower(int level) {
         return 30;
     }
 
     @Override
-    public int getMaximumLevel() {
+    public int getMaxLevel() {
         return 1;
     }
 

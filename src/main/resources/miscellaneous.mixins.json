@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "FarmlandBlockMixin",
-    "BlockStateMixin",
+    "AbstractBlockStateMixin",
     "PlayerInventoryMixin",
     "ServerPlayerEntityMixin",
     "PlayerEntityMixin",
