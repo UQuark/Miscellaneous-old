@@ -21,7 +21,7 @@ public class InvertedRedstoneLampBlock extends RedstoneLampBlock {
     public Identifier id;
 
     public InvertedRedstoneLampBlock() {
-        super(FabricBlockSettings.copy(Blocks.REDSTONE_LAMP).build());
+        super(Settings.copy(Blocks.REDSTONE_LAMP));
         blockItem = new BlockItem(this, new Item.Settings().group(ItemGroup.REDSTONE));
         setDefaultState(getDefaultState().with(LIT, true));
         id = new Identifier(Miscellaneous.modid, "inverted_redstone_lamp");
