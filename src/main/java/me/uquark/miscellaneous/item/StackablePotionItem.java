@@ -25,7 +25,7 @@ public class StackablePotionItem extends PotionItem {
                 return;
             Field potion = ReflectionHelper.resolveField(Items.class, "POTION", "field_8574");
             ReflectionHelper.setFinal(null, potion, this);
-            Registry.ITEM.set(687, RegistryKey.of(Registry.ITEM_KEY, id), this);
+            Registry.ITEM.set(749, RegistryKey.of(Registry.ITEM_KEY, id), this);
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();

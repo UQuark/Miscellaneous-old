@@ -27,7 +27,7 @@ public class StackableSplashPotionItem extends SplashPotionItem {
                 return;
             Field potion = ReflectionHelper.resolveField(Items.class, "SPLASH_POTION", "field_8436");
             ReflectionHelper.setFinal(null, potion, this);
-            Registry.ITEM.set(825, RegistryKey.of(Registry.ITEM_KEY, id), this);
+            Registry.ITEM.set(892, RegistryKey.of(Registry.ITEM_KEY, id), this);
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();
