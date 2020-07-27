@@ -20,17 +20,17 @@ public abstract class ArmorStandEntityMixin extends LivingEntity {
     }
 
     @Shadow
-    public abstract void method_6908(DamageSource damageSource);
+    public abstract void onBreak(DamageSource damageSource);
 
     @Shadow
     public abstract boolean shouldShowArms();
 
     @Overwrite
-    private void method_6924(DamageSource damageSource) {
+    private void breakAndDropItem(DamageSource damageSource) {
         if (shouldShowArms())
-            Block.dropStack(this.world, new BlockPos(this), new ItemStack(me.uquark.miscellaneous.item.Items.ARMOR_STAND_WITH_ARMS_ITEM));
+            Block.dropStack(this.world, getBlockPos(), new ItemStack(me.uquark.miscellaneous.item.Items.ARMOR_STAND_WITH_ARMS_ITEM));
         else
-            Block.dropStack(this.world, new BlockPos(this), new ItemStack(Items.ARMOR_STAND));
-        this.method_6908(damageSource);
+            Block.dropStack(this.world, getBlockPos(), new ItemStack(Items.ARMOR_STAND));
+        this.onBreak(damageSource);
     }
 }

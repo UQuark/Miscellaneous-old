@@ -1,11 +1,12 @@
 package me.uquark.miscellaneous.mixin;
 
 import com.google.common.collect.ImmutableMap;
+import com.mojang.serialization.MapCodec;
 import me.uquark.miscellaneous.item.WrenchItem;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.state.AbstractState;
 import net.minecraft.state.State;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.ActionResult;
@@ -17,10 +18,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(BlockState.class)
-public abstract class BlockStateMixin extends AbstractState<Block, BlockState> implements State<BlockState> {
-    protected BlockStateMixin(Block owner, ImmutableMap<Property<?>, Comparable<?>> entries) {
-        super(owner, entries);
+@Mixin(AbstractBlock.AbstractBlockState.class)
+public abstract class AbstractBlockStateMixin extends State<Block, BlockState> {
+    protected AbstractBlockStateMixin(Block block, ImmutableMap<Property<?>, Comparable<?>> propertyMap, MapCodec<BlockState> mapCodec) {
+        super(block, propertyMap, mapCodec);
     }
 
     @Inject(method = "onUse", at = @At("HEAD"), cancellable = true)

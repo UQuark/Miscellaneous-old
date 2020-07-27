@@ -97,7 +97,7 @@ public class TreeDefinition {
             return;
         }
 
-        if (state.getBlock() instanceof LogBlock && TreeType.getTreeType(state.getBlock()) == type) {
+        if (state.getBlock() instanceof PillarBlock && TreeType.getTreeType(state.getBlock()) == type) {
             blocks.add(pos);
             for (int x = -1; x <= 1; x++)
                 for (int y = 0; y <= 1; y++)

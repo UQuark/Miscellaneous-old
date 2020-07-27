@@ -8,6 +8,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.SplashPotionItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 
 import java.lang.reflect.Field;
 
@@ -26,7 +27,7 @@ public class StackableLingeringPotionItem extends SplashPotionItem {
                 return;
             Field potion = ReflectionHelper.resolveField(Items.class, "LINGERING_POTION", "field_8150");
             ReflectionHelper.setFinal(null, potion, this);
-            Registry.ITEM.set(828, id, this);
+            Registry.ITEM.set(828, RegistryKey.of(Registry.ITEM_KEY, id), this);
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();

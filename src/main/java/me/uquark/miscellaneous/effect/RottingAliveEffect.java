@@ -2,21 +2,17 @@ package me.uquark.miscellaneous.effect;
 
 import me.uquark.miscellaneous.Miscellaneous;
 import me.uquark.quarkcore.effect.AbstractStatusEffect;
-import net.minecraft.datafixer.NbtOps;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnType;
-import net.minecraft.entity.attribute.AbstractEntityAttributeContainer;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.Tag;
-import net.minecraft.util.math.BlockPos;
 
 public class RottingAliveEffect extends AbstractStatusEffect {
     protected RottingAliveEffect() {
@@ -29,7 +25,7 @@ public class RottingAliveEffect extends AbstractStatusEffect {
     }
 
     @Override
-    public void onApplied(LivingEntity entity, AbstractEntityAttributeContainer attributes, int amplifier) {
+    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         applyInstantEffect(null, null, entity, 0, 0);
     }
 
@@ -46,9 +42,9 @@ public class RottingAliveEffect extends AbstractStatusEffect {
         ZombieVillagerEntity zombieVillagerEntity = (ZombieVillagerEntity) EntityType.ZOMBIE_VILLAGER.create(villagerEntity.world);
         zombieVillagerEntity.copyPositionAndRotation(villagerEntity);
         villagerEntity.remove();
-        zombieVillagerEntity.initialize(villagerEntity.world, villagerEntity.world.getLocalDifficulty(new BlockPos(zombieVillagerEntity)), SpawnType.CONVERSION, null, null);
+        zombieVillagerEntity.initialize(villagerEntity.world, villagerEntity.world.getLocalDifficulty(zombieVillagerEntity.getBlockPos()), SpawnReason.CONVERSION, null, null);
         zombieVillagerEntity.setVillagerData(villagerEntity.getVillagerData());
-        zombieVillagerEntity.method_21649((Tag)villagerEntity.method_21651().serialize(NbtOps.INSTANCE).getValue());
+//        zombieVillagerEntity.method_21649((Tag)villagerEntity.method_21651().serialize(NbtOps.INSTANCE).getValue());
         zombieVillagerEntity.setOfferData(villagerEntity.getOffers().toTag());
         zombieVillagerEntity.setXp(villagerEntity.getExperience());
         zombieVillagerEntity.setBaby(villagerEntity.isBaby());
@@ -64,6 +60,6 @@ public class RottingAliveEffect extends AbstractStatusEffect {
 
         zombieVillagerEntity.setInvulnerable(villagerEntity.isInvulnerable());
         villagerEntity.world.spawnEntity(zombieVillagerEntity);
-        villagerEntity.world.playLevelEvent((PlayerEntity)null, 1026, new BlockPos(villagerEntity), 0);
+//        villagerEntity.world.playLevelEvent((PlayerEntity)null, 1026, new BlockPos(villagerEntity), 0);
     }
 }

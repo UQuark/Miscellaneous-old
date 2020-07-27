@@ -10,16 +10,16 @@ import net.minecraft.item.ItemStack;
 
 public class CharmOfComebackEnchantment extends AbstractEnchantment {
     protected CharmOfComebackEnchantment() {
-        super(Miscellaneous.modid, "charm_of_comeback", Weight.COMMON, EnchantmentTarget.ALL, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Miscellaneous.modid, "charm_of_comeback", Rarity.COMMON, EnchantmentTarget.BREAKABLE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
-    public int getMinimumPower(int level) {
+    public int getMinPower(int level) {
         return 30;
     }
 
     @Override
-    public int getMaximumLevel() {
+    public int getMaxLevel() {
         return 1;
     }
 
@@ -28,7 +28,8 @@ public class CharmOfComebackEnchantment extends AbstractEnchantment {
         return true;
     }
 
-    public boolean differs(Enchantment other) {
-        return other instanceof BindingCurseEnchantment ? false : super.differs(other);
+    @Override
+    protected boolean canAccept(Enchantment other) {
+        return other instanceof BindingCurseEnchantment ? false : super.canAccept(other);
     }
 }
