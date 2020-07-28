@@ -1,0 +1,22 @@
+{
+  "item.miscellaneous.wrench": "Ключ",
+  "enchantment.miscellaneous.charm_of_comeback": "Чары Возвращения",
+  "effect.miscellaneous.bound_inventory": "Возврат инвентаря",
+  "item.minecraft.potion.effect.bound_inventory": "Зелье возврата инвентаря",
+  "item.minecraft.potion.effect.long_bound_inventory": "Зелье возврата инвентаря",
+  "item.minecraft.splash_potion.effect.bound_inventory": "Взрывное зелье возврата инвентаря",
+  "item.minecraft.splash_potion.effect.long_bound_inventory": "Взрывное зелье возврата инвентаря",
+  "item.minecraft.tipped_arrow.effect.bound_inventory": "Стрела возврата инвентаря",
+  "item.minecraft.tipped_arrow.effect.long_bound_inventory": "Стрела возврата инвентаря",
+  "item.minecraft.lingering_potion.effect.bound_inventory": "Оседающее зелье возврата инвентаря",
+  "item.minecraft.lingering_potion.effect.long_bound_inventory": "Оседающее зелье возврата инвентаря",
+  "effect.miscellaneous.rotting_alive": "Гниение заживо",
+  "item.minecraft.potion.effect.rotting_alive": "Зелье гниения заживо",
+  "item.minecraft.splash_potion.effect.rotting_alive": "Взрывающееся зелье гниения заживо",
+  "item.minecraft.tipped_arrow.effect.rotting_alive": "Стрела гниения заживо",
+  "item.minecraft.lingering_potion.effect.rotting_alive": "Оседающее зелье гниения заживо",
+  "item.miscellaneous.necromass": "Некромасса",
+  "block.miscellaneous.inverted_redstone_lamp": "Инвертированная лампа",
+  "item.miscellaneous.armor_stand_with_arms": "Рукастая стойка для брони",
+  "enchantment.miscellaneous.lumberjack": "Дровосек"
+}
