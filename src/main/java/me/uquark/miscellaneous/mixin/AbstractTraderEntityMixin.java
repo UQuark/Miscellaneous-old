@@ -16,6 +16,10 @@ public abstract class AbstractTraderEntityMixin extends PassiveEntity implements
         super(type, world);
     }
 
+    /**
+     * @author UQuark
+     * @reason Villagers should be leashable. SLAVERYYYYY
+     */
     @Overwrite
     public boolean canBeLeashedBy(PlayerEntity player) {
         return true;

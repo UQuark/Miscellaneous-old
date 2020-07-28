@@ -8,6 +8,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Nameable;
 import net.minecraft.util.collection.DefaultedList;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -18,10 +19,15 @@ import java.util.List;
 @Mixin(PlayerInventory.class)
 public abstract class PlayerInventoryMixin implements Inventory, Nameable {
     @Shadow
-    private List<DefaultedList<ItemStack>> combinedInventory;
+    public List<DefaultedList<ItemStack>> combinedInventory;
+    @Final
     @Shadow
     public PlayerEntity player;
 
+    /**
+     * @author UQuark
+     * @reason Bound Inventory and Charm of Comeback
+     */
     @Overwrite
     public void dropAll() {
         if (player.getStatusEffect(Effects.BOUND_INVENTORY_EFFECT) != null)
