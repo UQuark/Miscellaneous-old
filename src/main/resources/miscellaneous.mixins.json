@@ -4,17 +4,18 @@
   "package": "me.uquark.miscellaneous.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FarmlandBlockMixin",
     "AbstractBlockStateMixin",
-    "PlayerInventoryMixin",
-    "ServerPlayerEntityMixin",
-    "PlayerEntityMixin",
     "AbstractTraderEntityMixin",
     "ArmorStandEntityMixin",
-    "SheepEntityMixin",
-    "ServerPlayerInteractionManagerMixin"
+    "FarmlandBlockMixin",
+    "PlayerEntityMixin",
+    "PlayerInventoryMixin",
+    "ServerPlayerEntityMixin",
+    "ServerPlayerInteractionManagerMixin",
+    "SheepEntityMixin"
   ],
   "client": [
+    "EffectButtonWidgetMixin"
   ],
   "injectors": {
     "defaultRequire": 1
