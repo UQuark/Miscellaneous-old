@@ -36,6 +36,6 @@ public class CharmOfComebackEnchantment extends AbstractEnchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return other != Enchantments.BINDING_CURSE && super.canAccept(other);
+        return other != Enchantments.BINDING_CURSE && other != Enchantments.VANISHING_CURSE && super.canAccept(other);
     }
 }
