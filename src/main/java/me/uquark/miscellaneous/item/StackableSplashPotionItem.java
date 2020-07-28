@@ -25,8 +25,7 @@ public class StackableSplashPotionItem extends SplashPotionItem {
                 return;
             if (!BrewingRecipeHelper.registerItemRecipe(me.uquark.miscellaneous.item.Items.STACKABLE_POTION_ITEM, Items.GUNPOWDER, me.uquark.miscellaneous.item.Items.STACKABLE_SPLASH_POTION_ITEM))
                 return;
-            Field potion = ReflectionHelper.resolveField(Items.class, "SPLASH_POTION", "field_8436");
-            ReflectionHelper.setFinal(null, potion, this);
+            Items.SPLASH_POTION = this;
             Registry.ITEM.set(892, RegistryKey.of(Registry.ITEM_KEY, id), this);
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");

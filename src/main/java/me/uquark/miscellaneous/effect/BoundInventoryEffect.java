@@ -13,18 +13,6 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class BoundInventoryEffect extends AbstractStatusEffect {
-    private static Field effectsByLevel;
-    private static Field effects;
-
-    static {
-        initialize();
-    }
-
-    private static void initialize() {
-        effectsByLevel = ReflectionHelper.resolveField(BeaconBlockEntity.class, "EFFECTS_BY_LEVEL", "field_11801");
-        effects = ReflectionHelper.resolveField(BeaconBlockEntity.class, "EFFECTS", "field_11798");
-    }
-
     protected BoundInventoryEffect() {
         super(Miscellaneous.modid, "bound_inventory", StatusEffectType.BENEFICIAL, 0xf2147d);
     }
@@ -33,8 +21,8 @@ public class BoundInventoryEffect extends AbstractStatusEffect {
     public void register() {
         super.register();
         try {
-            ReflectionHelper.setFinal(null, effectsByLevel, new StatusEffect[][]{{StatusEffects.SPEED, StatusEffects.HASTE}, {StatusEffects.RESISTANCE, StatusEffects.JUMP_BOOST}, {StatusEffects.STRENGTH}, {StatusEffects.REGENERATION, Effects.BOUND_INVENTORY_EFFECT}});
-            ReflectionHelper.setFinal(null, effects, Arrays.stream((StatusEffect[][]) effectsByLevel.get(null)).flatMap(Arrays::stream).collect(Collectors.toSet()));
+            BeaconBlockEntity.EFFECTS_BY_LEVEL = new StatusEffect[][]{{StatusEffects.SPEED, StatusEffects.HASTE}, {StatusEffects.RESISTANCE, StatusEffects.JUMP_BOOST}, {StatusEffects.STRENGTH}, {StatusEffects.REGENERATION, Effects.BOUND_INVENTORY_EFFECT}};
+            BeaconBlockEntity.EFFECTS = Arrays.stream(BeaconBlockEntity.EFFECTS_BY_LEVEL).flatMap(Arrays::stream).collect(Collectors.toSet());
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to add beacon effects");
             e.printStackTrace();
