@@ -14,6 +14,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(type, world);
     }
 
+    /**
+     * @author UQuark
+     * @reason Bound Inventory
+     */
     @Overwrite
     public boolean shouldAlwaysDropXp() {
         return getStatusEffect(Effects.BOUND_INVENTORY_EFFECT) == null;
