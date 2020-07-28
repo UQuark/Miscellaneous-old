@@ -20,7 +20,7 @@ public abstract class ArmorStandEntityMixin extends LivingEntity {
     }
 
     @Shadow
-    public abstract void onBreak(DamageSource damageSource);
+    protected abstract void onBreak(DamageSource damageSource);
 
     @Shadow
     public abstract boolean shouldShowArms();

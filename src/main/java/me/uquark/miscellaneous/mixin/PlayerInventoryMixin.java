@@ -18,9 +18,8 @@ import java.util.List;
 
 @Mixin(PlayerInventory.class)
 public abstract class PlayerInventoryMixin implements Inventory, Nameable {
-    @Final
     @Shadow
-    private List<DefaultedList<ItemStack>> combinedInventory;
+    public List<DefaultedList<ItemStack>> combinedInventory;
     @Final
     @Shadow
     public PlayerEntity player;
