@@ -5,6 +5,7 @@ import me.uquark.quarkcore.enchantment.AbstractEnchantment;
 import net.minecraft.enchantment.BindingCurseEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 
@@ -15,6 +16,11 @@ public class CharmOfComebackEnchantment extends AbstractEnchantment {
 
     @Override
     public int getMinPower(int level) {
+        return 20;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
         return 30;
     }
 
@@ -30,6 +36,6 @@ public class CharmOfComebackEnchantment extends AbstractEnchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return other instanceof BindingCurseEnchantment ? false : super.canAccept(other);
+        return other != Enchantments.BINDING_CURSE && super.canAccept(other);
     }
 }
