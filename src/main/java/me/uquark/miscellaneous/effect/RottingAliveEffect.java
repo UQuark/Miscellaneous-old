@@ -13,6 +13,7 @@ import net.minecraft.entity.effect.StatusEffectType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.VillagerEntity;
+import net.minecraft.server.world.ServerWorld;
 
 public class RottingAliveEffect extends AbstractStatusEffect {
     protected RottingAliveEffect() {
@@ -42,7 +43,7 @@ public class RottingAliveEffect extends AbstractStatusEffect {
         ZombieVillagerEntity zombieVillagerEntity = (ZombieVillagerEntity) EntityType.ZOMBIE_VILLAGER.create(villagerEntity.world);
         zombieVillagerEntity.copyPositionAndRotation(villagerEntity);
         villagerEntity.remove();
-        zombieVillagerEntity.initialize(villagerEntity.world, villagerEntity.world.getLocalDifficulty(zombieVillagerEntity.getBlockPos()), SpawnReason.CONVERSION, null, null);
+        zombieVillagerEntity.initialize((ServerWorld) villagerEntity.world, villagerEntity.world.getLocalDifficulty(zombieVillagerEntity.getBlockPos()), SpawnReason.CONVERSION, null, null);
         zombieVillagerEntity.setVillagerData(villagerEntity.getVillagerData());
 //        zombieVillagerEntity.method_21649((Tag)villagerEntity.method_21651().serialize(NbtOps.INSTANCE).getValue());
         zombieVillagerEntity.setOfferData(villagerEntity.getOffers().toTag());

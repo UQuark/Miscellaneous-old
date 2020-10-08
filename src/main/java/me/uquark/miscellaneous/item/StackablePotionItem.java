@@ -1,5 +1,6 @@
 package me.uquark.miscellaneous.item;
 
+import com.mojang.serialization.Lifecycle;
 import me.uquark.miscellaneous.Miscellaneous;
 import me.uquark.quarkcore.potion.BrewingRecipeHelper;
 import me.uquark.quarkcore.reflect.ReflectionHelper;
@@ -24,7 +25,7 @@ public class StackablePotionItem extends PotionItem {
             if (!BrewingRecipeHelper.registerPotionType(this))
                 return;
             Items.POTION = this;
-            Registry.ITEM.set(749, RegistryKey.of(Registry.ITEM_KEY, id), this);
+            Registry.ITEM.set(749, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();

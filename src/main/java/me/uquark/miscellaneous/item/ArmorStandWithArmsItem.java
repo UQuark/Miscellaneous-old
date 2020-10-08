@@ -38,7 +38,7 @@ public class ArmorStandWithArmsItem extends AbstractItem {
                 double d = (double)blockPos.getX();
                 double e = (double)blockPos.getY();
                 double f = (double)blockPos.getZ();
-                List<Entity> list = world.getEntities((Entity)null, new Box(d, e, f, d + 1.0D, e + 2.0D, f + 1.0D));
+                List<Entity> list = world.getOtherEntities((Entity)null, new Box(d, e, f, d + 1.0D, e + 2.0D, f + 1.0D));
                 if (!list.isEmpty()) {
                     return ActionResult.FAIL;
                 } else {

@@ -1,5 +1,6 @@
 package me.uquark.miscellaneous.item;
 
+import com.mojang.serialization.Lifecycle;
 import me.uquark.miscellaneous.Miscellaneous;
 import me.uquark.quarkcore.potion.BrewingRecipeHelper;
 import me.uquark.quarkcore.reflect.ReflectionHelper;
@@ -26,7 +27,7 @@ public class StackableLingeringPotionItem extends SplashPotionItem {
             if (!BrewingRecipeHelper.registerItemRecipe(me.uquark.miscellaneous.item.Items.STACKABLE_SPLASH_POTION_ITEM, Items.DRAGON_BREATH, me.uquark.miscellaneous.item.Items.STACKABLE_LINGERING_POTION_ITEM))
                 return;
             Items.LINGERING_POTION = this;
-            Registry.ITEM.set(895, RegistryKey.of(Registry.ITEM_KEY, id), this);
+            Registry.ITEM.set(896, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();

@@ -2,16 +2,16 @@ package me.uquark.miscellaneous.mixin;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Npc;
-import net.minecraft.entity.passive.AbstractTraderEntity;
+import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.village.Trader;
+import net.minecraft.village.Merchant;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Mixin(AbstractTraderEntity.class)
-public abstract class AbstractTraderEntityMixin extends PassiveEntity implements Npc, Trader {
+@Mixin(MerchantEntity.class)
+public abstract class AbstractTraderEntityMixin extends PassiveEntity implements Npc, Merchant {
     protected AbstractTraderEntityMixin(EntityType<? extends PassiveEntity> type, World world) {
         super(type, world);
     }
