@@ -12,7 +12,7 @@
 
 ##### Enchantments:
 - Charm of Comeback - prevents enchanted items from dropping when you die
-- Lumberjack enchantment - TreeCapitator as enchantment
+- Lumberjack - TreeCapitator as enchantment
 
 ##### Potions and effects:
 - Bound Inventory - keepInventory in a bottle! Also available in a beacon
