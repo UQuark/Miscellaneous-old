@@ -29,7 +29,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:0.28.0+1.17"
 
-	modImplementation "me.uquark:quarkcore:v0.6.3-20w49a"
+	modImplementation "me.uquark:quarkcore:0.6.3-20w49a"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
