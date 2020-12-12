@@ -42,7 +42,7 @@ public class RottingAliveEffect extends AbstractStatusEffect {
         VillagerEntity villagerEntity = (VillagerEntity)target;
         ZombieVillagerEntity zombieVillagerEntity = (ZombieVillagerEntity) EntityType.ZOMBIE_VILLAGER.create(villagerEntity.world);
         zombieVillagerEntity.copyPositionAndRotation(villagerEntity);
-        villagerEntity.remove();
+        villagerEntity.remove(Entity.RemovalReason.DISCARDED);
         zombieVillagerEntity.initialize((ServerWorld) villagerEntity.world, villagerEntity.world.getLocalDifficulty(zombieVillagerEntity.getBlockPos()), SpawnReason.CONVERSION, null, null);
         zombieVillagerEntity.setVillagerData(villagerEntity.getVillagerData());
 //        zombieVillagerEntity.method_21649((Tag)villagerEntity.method_21651().serialize(NbtOps.INSTANCE).getValue());

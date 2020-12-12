@@ -19,7 +19,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
     @Inject(method = "copyFrom", at = @At("HEAD"))
     public void copyFrom(ServerPlayerEntity oldPlayer, boolean alive, CallbackInfo info) {
-        this.inventory.clone(oldPlayer.inventory);
+        this.getInventory().clone(oldPlayer.getInventory());
         if (oldPlayer.getStatusEffect(Effects.BOUND_INVENTORY_EFFECT) != null) {
             this.experienceLevel = oldPlayer.experienceLevel;
             this.totalExperience = oldPlayer.totalExperience;

@@ -27,7 +27,8 @@ public class StackableLingeringPotionItem extends SplashPotionItem {
             if (!BrewingRecipeHelper.registerItemRecipe(me.uquark.miscellaneous.item.Items.STACKABLE_SPLASH_POTION_ITEM, Items.DRAGON_BREATH, me.uquark.miscellaneous.item.Items.STACKABLE_LINGERING_POTION_ITEM))
                 return;
             Items.LINGERING_POTION = this;
-            Registry.ITEM.set(896, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
+            int rawID = Registry.ITEM.getRawId(Items.LINGERING_POTION);
+            Registry.ITEM.set(902, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();

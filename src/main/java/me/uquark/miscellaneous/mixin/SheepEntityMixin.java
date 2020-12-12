@@ -20,7 +20,7 @@ public abstract class SheepEntityMixin extends AnimalEntity {
 
     @Override
     protected void eat(PlayerEntity player, ItemStack stack) {
-        if (!player.abilities.creativeMode) {
+        if (!player.getAbilities().creativeMode) {
             stack.decrement(1);
         }
 
