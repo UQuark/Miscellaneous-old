@@ -28,7 +28,7 @@ public class StackableLingeringPotionItem extends SplashPotionItem {
                 return;
             Items.LINGERING_POTION = this;
             int rawID = Registry.ITEM.getRawId(Items.LINGERING_POTION);
-            Registry.ITEM.set(902, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
+            Registry.ITEM.set(904, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();

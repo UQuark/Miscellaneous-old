@@ -18,7 +18,6 @@ public abstract class SheepEntityMixin extends AnimalEntity {
     @Shadow
     public abstract void setSheared(boolean bl);
 
-    @Override
     protected void eat(PlayerEntity player, ItemStack stack) {
         if (!player.getAbilities().creativeMode) {
             stack.decrement(1);

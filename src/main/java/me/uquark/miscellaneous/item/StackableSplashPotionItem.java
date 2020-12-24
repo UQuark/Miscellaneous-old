@@ -27,7 +27,7 @@ public class StackableSplashPotionItem extends SplashPotionItem {
             if (!BrewingRecipeHelper.registerItemRecipe(me.uquark.miscellaneous.item.Items.STACKABLE_POTION_ITEM, Items.GUNPOWDER, me.uquark.miscellaneous.item.Items.STACKABLE_SPLASH_POTION_ITEM))
                 return;
             Items.SPLASH_POTION = this;
-            Registry.ITEM.set(899, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
+            Registry.ITEM.set(901, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();

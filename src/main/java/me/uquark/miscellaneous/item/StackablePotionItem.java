@@ -25,7 +25,7 @@ public class StackablePotionItem extends PotionItem {
             if (!BrewingRecipeHelper.registerPotionType(this))
                 return;
             Items.POTION = this;
-            Registry.ITEM.set(755, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
+            Registry.ITEM.set(756, RegistryKey.of(Registry.ITEM_KEY, id), this, Lifecycle.stable());
         } catch (Exception e) {
             Miscellaneous.LOGGER.error("Failed to replace default potion item");
             e.printStackTrace();
